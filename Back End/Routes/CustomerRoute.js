@@ -1,13 +1,12 @@
 const customerController = require("../Controllers/CustomerController")
 
  module.exports = app => {
-  app.get("/customer/create", customerController.getCreate);
-  app.post("/customer/create", customerController.postCreate);
+  app.post("/api/customer", customerController.postCreate);
   // get list of all of the customers
-  app.get("/customer", customerController.getList);
+  app.get("/api/customer", customerController.getList);
   // search customer by id
-  app.get("/customer/search", customerController.getSearch);
-  app.post("/customer/search",customerController.postSearch);
+  app.get("/api/customer/search", customerController.getSearch);
+  app.post("/api/customer/search",customerController.postSearch);
   // Update customer by Id
-  app.patch("/customer/:id", customerController.patchUpdate);
+  app.patch("/api/customer/:id", customerController.patchUpdate);
  }

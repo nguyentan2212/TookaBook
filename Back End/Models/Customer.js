@@ -19,12 +19,14 @@ exports.createCustomer = (customer) => {
 }
 
 // Handle for getting all customers
-exports.getCustomers = (callBackrs, callbackerr) => {
+exports.getCustomers = (callBack) => {
   var conn = db.getConnection();
   sql = SqlString.format('CALL USP_GetCustomer()');
-  db.executeQuerry(sql)
-    .then(rs=>callBackrs(rs[0]))
-    .catch(err=>callbackerr(err))
+  conn.query(sql, function(err, result,fields) {
+    if (err) throw err;
+    // Callback the results and send it through CustomerController
+    callBack(result[0]);
+  })
 }
 
 // Search id of the customers

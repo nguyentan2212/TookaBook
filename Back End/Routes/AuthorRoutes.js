@@ -1,7 +1,7 @@
 var AuthorController = require("../Controllers/AuthorController")
 
 module.exports = app => {
-    app.get("/author", AuthorController.getAuthors);
-    app.post("/author",AuthorController.addAuthor);
+    app.get("/api/author", AuthorController.getAuthors);
+    app.post("/api/author",AuthorController.addAuthor);
 
 }

@@ -53,7 +53,6 @@ exports.addAccount = (data, callBackrs, callbackerr) => {
         data.Email,
         data.Address
       ];
-    
     let sql = sqlString.format("Call USP_AddAccount(?,?,?,?,?,?,?)", AccountInfo);
     db.executeQuerry(sql)
         .then(rs => callBackrs(rs))
@@ -70,7 +69,7 @@ exports.UpdateAccount = (data, callBackrs, callbackerr) => {
         data.Email,
         data.Address
       ];
-    
+    console.log(data);
     let sql = sqlString.format("Call USP_UpdateAccountByUsername(?,?,?,?,?,?,?)", AccountInfo);
     db.executeQuerry(sql)
         .then(rs => callBackrs(rs))

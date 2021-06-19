@@ -14,6 +14,7 @@ module.exports = (app) => {
   var router = express.Router();
   router.route("/").get(getBook).post(addBook);
   //router.route("/:id").get(getBookById).patch(updateBook);
-  router.route("/:id").get(getBookById).patch(UpdateBook);
-  app.use("/api/books", router);
+  router.route("/:id").get(getBookById);
+  router.route("/update").post(UpdateBook);
+  app.use("/api/book", router);
 };
